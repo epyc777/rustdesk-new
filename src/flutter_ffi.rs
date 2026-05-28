@@ -50,6 +50,11 @@ fn initialize(app_dir: &str, custom_client_config: &str) {
     } else {
         crate::read_custom_client(custom_client_config);
     }
+    // 强制禁用自动更新：通过 OVERWRITE_SETTINGS 锁定，UI 中该选项将灰显且不可修改
+    config::OVERWRITE_SETTINGS
+        .write()
+        .unwrap()
+        .insert(config::keys::OPTION_ALLOW_AUTO_UPDATE.to_string(), "N".to_string());
     #[cfg(target_os = "android")]
     {
         // flexi_logger can't work when android_logger initialized.
