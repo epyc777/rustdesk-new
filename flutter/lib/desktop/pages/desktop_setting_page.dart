@@ -529,6 +529,7 @@ class _GeneralState extends State<_General> {
               isServer: false,
             ),
           ),
+/*
         if (!isWeb && !bind.isCustomClient())
           _OptionCheckBox(
             context,
@@ -543,6 +544,7 @@ class _GeneralState extends State<_General> {
             kOptionAllowAutoUpdate,
             isServer: true,
           ),
+*/
         if (isWindows && !bind.isOutgoingOnly())
           _OptionCheckBox(
             context,
