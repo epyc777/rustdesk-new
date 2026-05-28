@@ -87,6 +87,10 @@ jobs:
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
+      - name: Configure git to access private submodule
+        run: |
+          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
@@ -116,7 +120,7 @@ jobs:
           flutter precache --windows
           Invoke-WebRequest -Uri https://github.com/rustdesk/engine/releases/download/main/windows-x64-release.zip -OutFile windows-x64-release.zip
           Expand-Archive -Path windows-x64-release.zip -DestinationPath windows-x64-release
-          mv -Force windows-x64-release/*  C:/hostedtoolcache/windows/flutter/stable-${{ env.FLUTTER_VERSION }}-x64/bin/cache/artifacts/engine/windows-x64-release/
+          mv -Force windows-x64-release/*  C:/hostedtoolcache/windows/flutter/stable-${{ env.FLUTTER_VERSION }}-x64/bin/cache/artifacts/engine/windows-x64-release/
 
       - name: Patch flutter
         shell: bash
@@ -308,6 +312,10 @@ jobs:
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
+      - name: Configure git to access private submodule
+        run: |
+          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
@@ -458,6 +466,10 @@ jobs:
       - name: Install dependencies
         run: |
           brew install nasm yasm
+      - name: Configure git to access private submodule
+        run: |
+          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
@@ -583,6 +595,10 @@ jobs:
           script: |
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
+      - name: Configure git to access private submodule
+        run: |
+          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
 
       - name: Checkout source code
         uses: actions/checkout@v4
@@ -898,6 +914,10 @@ jobs:
                tree \
                wget
 
+      - name: Configure git to access private submodule
+        run: |
+          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
@@ -1170,6 +1190,10 @@ jobs:
                tree \
                wget
 
+      - name: Configure git to access private submodule
+        run: |
+          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
@@ -1335,6 +1359,10 @@ jobs:
           if [[ "${{ matrix.job.arch }}" == "x86_64" ]]; then
             sudo apt-get install -y qemu-user-static
           fi
+
+      - name: Configure git to access private submodule
+        run: |
+          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
 
       - name: Checkout source code
         uses: actions/checkout@v4
@@ -1666,6 +1694,10 @@ jobs:
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
+      - name: Configure git to access private submodule
+        run: |
+          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
@@ -1868,6 +1900,10 @@ jobs:
           - { target: x86_64-unknown-linux-gnu, arch: x86_64 }
           - { target: aarch64-unknown-linux-gnu, arch: aarch64 }
     steps:
+      - name: Configure git to access private submodule
+        run: |
+          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
@@ -1941,6 +1977,10 @@ jobs:
               suffix: "",
             }
     steps:
+      - name: Configure git to access private submodule
+        run: |
+          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
@@ -2002,6 +2042,10 @@ jobs:
     env:
       RELEASE_NAME: web-basic
     steps:
+      - name: Configure git to access private submodule
+        run: |
+          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: Checkout source code
         uses: actions/checkout@v4
         with:

@@ -24,6 +24,10 @@ jobs:
               extra-build-args: "",
             }
     steps:
+      - name: Configure git to access private submodule
+        run: |
+          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
