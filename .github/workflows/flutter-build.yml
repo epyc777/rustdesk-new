@@ -1,4 +1,4 @@
-﻿name: Build the flutter version of the RustDesk
+name: Build the flutter version of the RustDesk
 
 on:
   workflow_call:
@@ -50,6 +50,7 @@ env:
 jobs:
   generate-bridge:
     uses: ./.github/workflows/bridge.yml
+    secrets: inherit
 
   build-RustDeskTempTopMostWindow:
     uses: ./.github/workflows/third-party-RustDeskTempTopMostWindow.yml
