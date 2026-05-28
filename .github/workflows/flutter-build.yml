@@ -1,4 +1,4 @@
-name: Build the flutter version of the RustDesk
+﻿name: Build the flutter version of the RustDesk
 
 on:
   workflow_call:
@@ -87,13 +87,10 @@ jobs:
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
-      - name: Configure git to access private submodule
-        run: |
-          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.HBB_COMMON_TOKEN }}
           submodules: recursive
 
       - name: Restore bridge files
@@ -312,13 +309,10 @@ jobs:
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
-      - name: Configure git to access private submodule
-        run: |
-          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.HBB_COMMON_TOKEN }}
           submodules: recursive
 
       - name: Install LLVM and Clang
@@ -466,13 +460,10 @@ jobs:
       - name: Install dependencies
         run: |
           brew install nasm yasm
-      - name: Configure git to access private submodule
-        run: |
-          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.HBB_COMMON_TOKEN }}
           submodules: recursive
 
       - name: Install flutter
@@ -596,13 +587,10 @@ jobs:
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
-      - name: Configure git to access private submodule
-        run: |
-          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.HBB_COMMON_TOKEN }}
           submodules: recursive
 
       - name: Import the codesign cert
@@ -914,13 +902,10 @@ jobs:
                tree \
                wget
 
-      - name: Configure git to access private submodule
-        run: |
-          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.HBB_COMMON_TOKEN }}
           submodules: recursive
 
       - name: Install flutter
@@ -1190,13 +1175,10 @@ jobs:
                tree \
                wget
 
-      - name: Configure git to access private submodule
-        run: |
-          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.HBB_COMMON_TOKEN }}
           submodules: recursive
 
       - name: Install flutter
@@ -1360,13 +1342,10 @@ jobs:
             sudo apt-get install -y qemu-user-static
           fi
 
-      - name: Configure git to access private submodule
-        run: |
-          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.HBB_COMMON_TOKEN }}
           submodules: recursive
 
       - name: Set Swap Space
@@ -1694,13 +1673,10 @@ jobs:
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
-      - name: Configure git to access private submodule
-        run: |
-          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.HBB_COMMON_TOKEN }}
           submodules: recursive
 
       - name: Modify vcpkg.json for armv7
@@ -1900,13 +1876,10 @@ jobs:
           - { target: x86_64-unknown-linux-gnu, arch: x86_64 }
           - { target: aarch64-unknown-linux-gnu, arch: aarch64 }
     steps:
-      - name: Configure git to access private submodule
-        run: |
-          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.HBB_COMMON_TOKEN }}
           submodules: recursive
 
       - name: Download Binary
@@ -1977,13 +1950,10 @@ jobs:
               suffix: "",
             }
     steps:
-      - name: Configure git to access private submodule
-        run: |
-          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.HBB_COMMON_TOKEN }}
           submodules: recursive
 
       - name: Download Binary
@@ -2042,13 +2012,10 @@ jobs:
     env:
       RELEASE_NAME: web-basic
     steps:
-      - name: Configure git to access private submodule
-        run: |
-          git config --global url."https://${{ secrets.HBB_COMMON_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.HBB_COMMON_TOKEN }}
           submodules: recursive
 
       - name: Prepare env
