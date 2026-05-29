@@ -1571,14 +1571,15 @@ String translate(String name) {
 // sciter: Does not have the function, but it should be kept the same.
 bool option2bool(String option, String value) {
   bool res;
-  if (option.startsWith("enable-")) {
+  if (option.startsWith("enable-") && option != 'enable-check-update') {
     res = value != "N";
   } else if (option.startsWith("allow-") ||
       option == kOptionStopService ||
       option == kOptionDirectServer ||
       option == kOptionForceAlwaysRelay ||
       option == 'keep-awake-during-incoming-sessions' ||
-      option == 'keep-awake-during-outgoing-sessions') {
+      option == 'keep-awake-during-outgoing-sessions' ||
+      option == 'enable-check-update') {
     res = value == "Y";
   } else {
     // "" is true
