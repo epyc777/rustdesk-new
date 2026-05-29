@@ -542,6 +542,7 @@ class _GeneralState extends State<_General> {
             'Auto update',
             kOptionAllowAutoUpdate,
             isServer: true,
+            enabled: false,
           ),
         if (isWindows && !bind.isOutgoingOnly())
           _OptionCheckBox(

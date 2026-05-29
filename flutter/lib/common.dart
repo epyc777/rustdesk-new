@@ -1576,7 +1576,9 @@ bool option2bool(String option, String value) {
   } else if (option.startsWith("allow-") ||
       option == kOptionStopService ||
       option == kOptionDirectServer ||
-      option == kOptionForceAlwaysRelay) {
+      option == kOptionForceAlwaysRelay ||
+      option == 'keep-awake-during-incoming-sessions' ||
+      option == 'keep-awake-during-outgoing-sessions') {
     res = value == "Y";
   } else {
     // "" is true
