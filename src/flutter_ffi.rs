@@ -55,6 +55,16 @@ fn initialize(app_dir: &str, custom_client_config: &str) {
         .write()
         .unwrap()
         .insert(config::keys::OPTION_ALLOW_AUTO_UPDATE.to_string(), "N".to_string());
+    // 接受会话时移除桌面壁纸：默认开启（Y）
+    config::DEFAULT_SETTINGS
+        .write()
+        .unwrap()
+        .insert(config::keys::OPTION_ALLOW_REMOVE_WALLPAPER.to_string(), "Y".to_string());
+    // 传出会话期间保持屏幕常亮：默认关闭（N）
+    config::DEFAULT_LOCAL_SETTINGS
+        .write()
+        .unwrap()
+        .insert(config::keys::OPTION_KEEP_AWAKE_DURING_OUTGOING_SESSIONS.to_string(), "N".to_string());
     #[cfg(target_os = "android")]
     {
         // flexi_logger can't work when android_logger initialized.
